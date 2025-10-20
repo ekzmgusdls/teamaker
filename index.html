@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        />
+
+        <title>Team maker v.0.2</title>
+        <!-- jQuery UI CDN -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+        <!-- jQuery UI Touch Punch for mobile support -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://code.jquery.com/ui/1.13.2/themes/ui-lightness/jquery-ui.css"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <main>
+            <div class="header">
+                <h1>Team maker</h1>
+                <div class="reset" title="새로고침">
+                    <span> Reset </span>
+                </div>
+            </div>
+            <div class="step step-1">
+                <textarea
+                    class="add-member-names"
+                    contenteditable="true"
+                    placeholder="엔터로 구분하면 여러 멤버를 추가할 수 있어요"
+                ></textarea>
+                <div class="add-member add-member--name">멤버 추가하기</div>
+                <div class="names-container">
+                    <div class="indicator">멤버를 눌러 팀 구성을 시작해요.</div>
+                    <div class="names"></div>
+                </div>
+            </div>
+            <div class="step step-2 hide">
+                <div class="team-select-container">
+                    <label class="team-select team-select--a">
+                        <input type="radio" name="team" value="a" checked />
+                    </label>
+                    <div class="count-label">Rank</div>
+                    <label class="team-select team-select--b">
+                        <input type="radio" name="team" value="b" />
+                    </label>
+                </div>
+                <div class="prepair">
+                    <div class="loading">
+                        <img src="src/loading.gif" alt="Loading..." />
+                    </div>
+                    <div class="list-container list-container--team-a">
+                        <div class="list"></div>
+                    </div>
+                    <div class="numbering"></div>
+                    <div class="list-container list-container--team-b">
+                        <div class="list"></div>
+                    </div>
+                </div>
+                <!-- <div class="count">(<span>0</span>)</div> -->
+                <button class="shuffle">팀 섞기</button>
+                <div class="notice"></div>
+            </div>
+        </main>
+    </body>
+    <div class="alert"></div>
+    <script src="basic.js"></script>
+</html>
