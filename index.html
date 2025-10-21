@@ -9,6 +9,7 @@
 
         <title>Teamaker</title>
         <!-- jQuery UI CDN -->
+        <link rel="icon" type="image/x-icon" href="src/favicon.svg" />
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
         <!-- jQuery UI Touch Punch for mobile support -->
@@ -17,20 +18,14 @@
             rel="stylesheet"
             href="https://code.jquery.com/ui/1.13.2/themes/ui-lightness/jquery-ui.css"
         />
-        <link
-            rel="stylesheet"
-            href="css/style.css"
-        />
+        <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
         <main>
             <div class="header">
                 <h1>Team maker</h1>
-                <div
-                    class="reset"
-                    title="새로고침"
-                >
-                    <span> Reset </span>
+                <div class="reset" title="새로고침">
+                    <span>Reset</span>
                 </div>
             </div>
             <div class="step step-1">
@@ -48,28 +43,16 @@
             <div class="step step-2 hide">
                 <div class="team-select-container">
                     <label class="team-select team-select--a">
-                        <input
-                            type="radio"
-                            name="team"
-                            value="a"
-                            checked
-                        />
+                        <input type="radio" name="team" value="a" checked />
                     </label>
                     <div class="count-label">Rank</div>
                     <label class="team-select team-select--b">
-                        <input
-                            type="radio"
-                            name="team"
-                            value="b"
-                        />
+                        <input type="radio" name="team" value="b" />
                     </label>
                 </div>
                 <div class="prepair">
                     <div class="loading">
-                        <img
-                            src="src/loading.gif"
-                            alt="Loading..."
-                        />
+                        <img src="src/loading.gif" alt="Loading..." />
                     </div>
                     <div class="list-container list-container--team-a">
                         <div class="list"></div>

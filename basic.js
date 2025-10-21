@@ -243,6 +243,7 @@ $(document).ready(function () {
 
     function reset() {
         $('.reset').click(function () {
+            localStorage.removeItem('members')
             window.location.reload()
         })
     }

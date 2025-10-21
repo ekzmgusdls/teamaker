@@ -54,7 +54,7 @@ body {
     cursor: pointer;
     font-size: 14px;
     transition: all 0.2s;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
     height: 31px;
     display: flex;
     justify-content: center;
@@ -93,11 +93,33 @@ body {
     column-gap: 5px;
     row-gap: 5px;
     justify-content: center;
-    margin-bottom: 40px;
+    padding-bottom: 30px;
+    padding-top: 20px;
 
-    touch-action: none; // 터치 디바이스에서 드래그 지원
+    margin-top: 10px;
+    margin-bottom: 10px;
     .member {
-        padding-right: 5px;
+        cursor: pointer;
+        display: flex;
+        // padding-left: 5px;
+        .remove-btn {
+            display: none;
+            order: -1;
+        }
+        &:hover {
+            z-index: 9;
+            .remove-btn {
+                display: flex;
+                position: absolute;
+                right: -8px;
+                top: -8px;
+                background-color: var(--gray);
+                &:hover {
+                    background-color: var(--red);
+                    color: white;
+                }
+            }
+        }
     }
 }
 
@@ -131,6 +153,7 @@ body {
         position: relative;
         span {
             position: relative;
+            font-size: 0.8em;
             bottom: 1px;
         }
 
@@ -446,4 +469,8 @@ body {
         position: relative;
         bottom: 1px;
     }
+}
+
+.reset {
+    cursor: pointer;
 }
