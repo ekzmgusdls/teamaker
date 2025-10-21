@@ -474,3 +474,14 @@ body {
 .reset {
     cursor: pointer;
 }
+
+.credit {
+    color: var(--gray);
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
