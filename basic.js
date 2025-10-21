@@ -264,6 +264,22 @@ $(document).ready(function () {
         })
     }
 
+    function makebodyCentered() {
+        if (innerHeight <= $('body').height(true)) {
+            $('body').css({
+                display: 'block',
+                minHeight: `auto`,
+            })
+        } else {
+            $('body').css({
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                minHeight: `100vh`,
+            })
+        }
+    }
+
     dragFunction()
     addNumbering()
     disableTouch()
@@ -273,8 +289,11 @@ $(document).ready(function () {
     initMember()
     reset()
     removeMember()
+    makebodyCentered()
 
     $(document).on('click', '.indicator', function () {
         $(this).fadeOut()
     })
+
+    $(window).on('resize', makebodyCentered)
 })

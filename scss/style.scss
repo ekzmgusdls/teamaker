@@ -8,9 +8,11 @@
 * {
     box-sizing: border-box;
 }
-s html {
+html {
     font-family: Helvetica, Arial, sans-serif;
     line-height: 1.4;
+    max-width: 430px;
+    margin: 0 auto;
 }
 body {
     font-family: Helvetica, Arial, sans-serif;
@@ -21,6 +23,10 @@ body {
 
     margin: 0 auto;
     font-weight: bold;
+}
+
+.step-1 {
+    margin-top: 60px;
 }
 
 .add-member-names {
@@ -361,8 +367,13 @@ body {
 .header {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 50px;
-
+    max-width: 430px;
+    width: 100%;
+    left: 50%;
+    // top: 0;
+    position: fixed;
+    padding: 10px 15px;
+    transform: translateX(-50%);
     .count {
         position: relative;
         bottom: 1.5px;
