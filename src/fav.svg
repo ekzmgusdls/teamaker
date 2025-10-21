@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_1" data-name="레이어_1" xmlns="http://www.w3.org/2000/svg" width="37.9mm" height="37.9mm" version="1.1" viewBox="0 0 107.4 107.4">
+  <!-- Generator: Adobe Illustrator 29.5.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 141)  -->
+  <defs>
+    <style>
+      .st0, .st1 {
+        fill: #231815;
+      }
+
+      .st2 {
+        fill: #fff;
+      }
+
+      .st3 {
+        fill: #b9b197;
+      }
+
+      .st1 {
+        font-family: AdobeMyungjoStd-Medium-KSCpc-EUC-H, 'Adobe Myungjo Std';
+        font-size: 12px;
+        font-weight: 500;
+      }
+    </style>
+  </defs>
+  <text class="st1" transform="translate(147 -198.8)"><tspan x="0" y="0">test</tspan></text>
+  <rect class="st0" x="351.1" y="-160.9" width="107.4" height="107.4"/>
+  <rect class="st3" x="273.5" width="107.4" height="107.4" rx="12.1" ry="12.1"/>
+  <g>
+    <circle class="st0" cx="327.2" cy="53.6" r="46.1"/>
+    <path class="st2" d="M299,28.7h15.2l12.9,31.5h.6l13-31.5h15.3v50.9h-12.1v-31.3h-.3l-12.3,31h-7.7l-12.2-31.1h-.4v31.4h-12V28.7Z"/>
+  </g>
+  <rect class="st0" x="384.6" width="107.4" height="107.4" rx="12.1" ry="12.1"/>
+  <g>
+    <circle class="st3" cx="438.3" cy="53.6" r="46.1"/>
+    <path class="st0" d="M410.1,28.7h15.2l12.9,31.5h.6l13-31.5h15.3v50.9h-12.1v-31.3h-.3l-12.3,31h-7.7l-12.2-31.1h-.4v31.4h-12V28.7Z"/>
+  </g>
+  <rect class="st0" width="107.4" height="107.4" rx="12.1" ry="12.1"/>
+  <g>
+    <circle class="st3" cx="53.7" cy="53.6" r="46.1"/>
+    <path class="st0" d="M25.5,28.7h15.2l12.9,31.5h.6l13-31.5h15.3v50.9h-12.1v-31.3h-.3l-12.3,31h-7.7l-12.2-31.1h-.4v31.4h-12V28.7Z"/>
+  </g>
+  <rect class="st3" x="499.3" width="107.4" height="107.4" rx="12.1" ry="12.1"/>
+  <g>
+    <circle class="st0" cx="553" cy="53.6" r="46.1"/>
+    <path class="st3" d="M524.9,28.7h15.2l12.9,31.5h.6l13-31.5h15.3v50.9h-12.1v-31.3h-.3l-12.3,31h-7.7l-12.2-31.1h-.4v31.4h-12V28.7Z"/>
+  </g>
+</svg>
