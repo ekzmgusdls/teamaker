@@ -25,6 +25,11 @@ body {
     font-weight: bold;
 }
 
+button {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 0;
+}
 .step-1 {
     margin-top: 60px;
 }
@@ -65,14 +70,24 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: inherit;
+    font-weight: inherit;
+    height: 37px;
     @media (hover: hover) {
         &:hover {
             background-color: var(--gray);
         }
     }
 }
-.names-container {
+.preteam-container {
     position: relative;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .indicator {
         background: rgba(255, 255, 255, 0.6);
         padding: 15px;
@@ -92,37 +107,35 @@ body {
         cursor: pointer;
         z-index: 2;
     }
-}
-.names {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 5px;
-    row-gap: 5px;
-    justify-content: center;
-    padding-bottom: 30px;
-    padding-top: 20px;
 
-    margin-top: 10px;
-    margin-bottom: 10px;
-    .member {
-        cursor: pointer;
+    .preteam {
         display: flex;
-        // padding-left: 5px;
-        .remove-btn {
-            display: none;
-            order: -1;
-        }
-        &:hover {
-            z-index: 9;
+        flex-wrap: wrap;
+        column-gap: 5px;
+        row-gap: 5px;
+        justify-content: center;
+        margin-bottom: 10px;
+
+        .member {
+            cursor: pointer;
+            display: flex;
+            // padding-left: 5px;
             .remove-btn {
-                display: flex;
-                position: absolute;
-                right: -8px;
-                top: -8px;
-                background-color: var(--gray);
-                &:hover {
-                    background-color: var(--red);
-                    color: white;
+                display: none;
+                order: -1;
+            }
+            &:hover {
+                z-index: 9;
+                .remove-btn {
+                    display: flex;
+                    position: absolute;
+                    right: -8px;
+                    top: -8px;
+                    background-color: var(--gray);
+                    &:hover {
+                        background-color: var(--red);
+                        color: white;
+                    }
                 }
             }
         }
@@ -335,7 +348,7 @@ body {
             }
         }
     }
-    .count-label {
+    .rank-label {
         writing-mode: vertical-rl;
         display: flex;
         align-items: center;
@@ -391,6 +404,23 @@ body {
         transform: translateX(-50%);
         font-size: 16px;
         //   color: var(--spot);
+    }
+}
+.clear-container {
+    display: flex;
+    justify-content: center;
+    order: 9;
+    display: none;
+    .clear-button {
+        background: transparent;
+        color: var(--red);
+        font-weight: bold;
+        padding: 10px 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        left: 0;
+        transition: all 0.2s;
+        margin: 0 auto;
     }
 }
 
@@ -494,5 +524,57 @@ body {
     a {
         text-decoration: none;
         color: inherit;
+    }
+}
+
+::selection {
+    background: var(--spot);
+    color: white;
+}
+
+.visually-hidden {
+    display: none;
+}
+
+.notice-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    display: none;
+    .notice {
+        background-color: var(--light-gray);
+        color: black;
+        padding: 15px 20px;
+        border-radius: 4px;
+        p {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+        .choice {
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+            div {
+                background-color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                border-radius: 5px;
+                transition: all 0.2s;
+                &:hover {
+                    background-color: var(--gray);
+                    cursor: pointer;
+                }
+            }
+        }
     }
 }

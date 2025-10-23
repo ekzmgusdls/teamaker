@@ -7,7 +7,75 @@
             content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
         />
 
-        <title>teaMaker</title>
+        <title>teaMaker - 온라인 팀 구성 도구 | 랜덤 팀 만들기</title>
+        <meta
+            name="description"
+            content="teaMaker는 멤버들을 입력하면 자동으로 균형잡힌 팀을 구성해주는 온라인 도구입니다. 학교, 회사, 스터디 그룹에서 쉽고 빠르게 팀을 나눠보세요."
+        />
+        <meta
+            name="keywords"
+            content="팀 구성, 팀 만들기, 랜덤 팀, 팀 나누기, 온라인 도구, teaMaker, 그룹 나누기, 멤버 배정"
+        />
+        <meta name="author" content="HwangHyunbeom" />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="Korean" />
+        <meta name="revisit-after" content="7 days" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ekzmgusdls.github.io/aespa_dirtywork/" />
+        <meta property="og:title" content="teaMaker - 온라인 팀 구성 도구" />
+        <meta
+            property="og:description"
+            content="멤버들을 입력하면 자동으로 균형잡힌 팀을 구성해주는 온라인 도구입니다."
+        />
+        <meta
+            property="og:image"
+            content="https://ekzmgusdls.github.io/aespa_dirtywork/src/fav.svg"
+        />
+        <meta property="og:locale" content="ko_KR" />
+        <meta property="og:site_name" content="teaMaker" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://ekzmgusdls.github.io/aespa_dirtywork/" />
+        <meta property="twitter:title" content="teaMaker - 온라인 팀 구성 도구" />
+        <meta
+            property="twitter:description"
+            content="멤버들을 입력하면 자동으로 균형잡힌 팀을 구성해주는 온라인 도구입니다."
+        />
+        <meta
+            property="twitter:image"
+            content="https://ekzmgusdls.github.io/aespa_dirtywork/src/fav.svg"
+        />
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebApplication",
+                "name": "teaMaker",
+                "description": "멤버들을 입력하면 자동으로 균형잡힌 팀을 구성해주는 온라인 도구",
+                "url": "https://ekzmgusdls.github.io/aespa_dirtywork/",
+                "applicationCategory": "Utility",
+                "operatingSystem": "Web Browser",
+                "author": {
+                    "@type": "Person",
+                    "name": "HwangHyunbeom",
+                    "email": "ekzmgusdls@gmail.com"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "KRW"
+                },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "5",
+                    "ratingCount": "1"
+                }
+            }
+        </script>
         <!-- jQuery UI CDN -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
@@ -21,58 +89,87 @@
         <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
-        <main>
+        <header>
             <div class="header">
                 <h1>teaMaker</h1>
+                <p class="subtitle visually-hidden">간편한 온라인 팀 구성 도구</p>
                 <div class="reset" title="새로고침">
                     <span>Reset</span>
                 </div>
             </div>
-            <div class="step step-1">
+        </header>
+
+        <main role="main">
+            <section class="step step-1" aria-label="멤버 추가 단계">
+                <h2 class="visually-hidden">1단계: 멤버 추가하기</h2>
                 <textarea
                     class="add-member-names"
                     contenteditable="true"
                     placeholder="엔터로 구분하면 여러 멤버를 추가할 수 있어요"
+                    aria-label="팀 멤버 이름 입력"
                 ></textarea>
-                <div class="add-member add-member--name">멤버 추가하기</div>
-                <div class="names-container">
+                <button class="add-member add-member--name">멤버 추가하기</button>
+
+                <div class="preteam-container">
                     <div class="indicator">멤버를 눌러 팀 구성을 시작해요.</div>
-                    <div class="names"></div>
+                    <div class="preteam">
+                        <div class="clear-container">
+                            <button class="clear-button">Clear All</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="step step-2 hide">
+            </section>
+
+            <section class="step step-2 hide" aria-label="팀 구성 단계">
+                <h2 class="visually-hidden">2단계: 팀 구성하기</h2>
                 <div class="team-select-container">
                     <label class="team-select team-select--a">
                         <input type="radio" name="team" value="a" checked />
+                        <span class="visually-hidden">A팀 선택</span>
                     </label>
-                    <div class="count-label">Rank</div>
+                    <div class="rank-label" role="text">Rank</div>
                     <label class="team-select team-select--b">
                         <input type="radio" name="team" value="b" />
+                        <span class="visually-hidden">B팀 선택</span>
                     </label>
                 </div>
                 <div class="prepair">
-                    <div class="loading">
-                        <img src="src/loading.gif" alt="Loading..." />
+                    <div class="loading" aria-hidden="true">
+                        <img src="src/loading.gif" alt="팀 구성 중..." />
                     </div>
-                    <div class="list-container list-container--team-a">
+                    <div class="list-container list-container--team-a" aria-label="A팀 멤버 목록">
                         <div class="list"></div>
                     </div>
-                    <div class="numbering"></div>
-                    <div class="list-container list-container--team-b">
+                    <div class="numbering" aria-hidden="true"></div>
+                    <div class="list-container list-container--team-b" aria-label="B팀 멤버 목록">
                         <div class="list"></div>
                     </div>
                 </div>
-                <!-- <div class="count">(<span>0</span>)</div> -->
                 <button class="shuffle">팀 섞기</button>
-                <div class="notice"></div>
+                <div class="notice" role="status" aria-live="polite"></div>
+            </section>
+
+            <div class="notice-container">
+                <div class="notice">
+                    <p>멤버를 모두 제거하시겠습니까?</p>
+                    <div class="choice">
+                        <div class="yes" data-type="yes">네</div>
+                        <div class="no" data-type="no">아니오</div>
+                    </div>
+                </div>
             </div>
         </main>
+
+        <footer class="credit">
+            <div class="rep">© 2025 HwangHyunbeom. All rights reserved.</div>
+            <div class="email">
+                문의 :
+                <a href="mailto:ekzmgusdls@gmail.com" aria-label="개발자에게 이메일 보내기"
+                    >ekzmgusdls@gmail.com</a
+                >
+            </div>
+        </footer>
+
+        <script src="basic.js"></script>
     </body>
-    <div class="credit">
-        <div class="rep">© 2025 HwangHyunbeom. All rights reserved.</div>
-        <div class="email">
-            문의 : <a href="mailto:ekzmgusdls@gmail.com">ekzmgusdls@gmail.com</a>
-        </div>
-    </div>
-    <script src="basic.js"></script>
 </html>

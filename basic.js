@@ -7,7 +7,7 @@ $(document).ready(function () {
 
     function dragFunction() {
         $('.list-container--team-a .list, .list-container--team-b .list').sortable({
-            connectWith: '.names, .list-container--team-a .list, .list-container--team-b .list',
+            connectWith: '.preteam, .list-container--team-a .list, .list-container--team-b .list',
             helper: 'clone',
             placeholder: 'member-placeholder',
             tolerance: 'pointer',
@@ -43,19 +43,29 @@ $(document).ready(function () {
         })
     }
 
+    function indicator() {
+        $('.indicator').css('display', 'flex')
+        setTimeout(() => {
+            $('.indicator').fadeOut()
+            isFirstCheckForNames = false
+        }, 2000)
+        $(document).on('click', '.indicator', function () {
+            $(this).fadeOut()
+        })
+    }
+
+    function memberDom(name) {
+        return `<div class="member">${name} <div class="remove-btn"><span>×</span></div></div>`
+    }
+
     function initMember() {
         const storedMembers = JSON.parse(localStorage.getItem('members')) || []
         if (storedMembers) {
             storedMembers.forEach((member) => {
-                $('.names').append(
+                $('.preteam').append(
                     `<div class="member">${member} <div class="remove-btn"><span>×</span></div></div>`,
                 )
-                $('.indicator').css('display', 'flex')
-                setTimeout(() => {
-                    $('.indicator').fadeOut()
-                }, 2000)
-                isFirstCheckForNames = false
-                // $('.step-1').addClass('hide')
+                indicator()
                 $('.step-2').removeClass('hide')
             })
         }
@@ -80,7 +90,7 @@ $(document).ready(function () {
                 const $member = $(this).parent()
                 // list-container에서 제거
                 $member.remove()
-                $('.names').append($member)
+                $('.preteam').append($member)
 
                 addNumbering()
             })
@@ -169,6 +179,15 @@ $(document).ready(function () {
             }, 200)
         })
     }
+    function clearButton() {
+        $('.clear-button').click(function () {
+            $('.notice-container').css('display', 'flex')
+        })
+        $('.choice .yes').click(function () {
+            localStorage.removeItem('members')
+            location.reload()
+        })
+    }
 
     let noticeTimeout = null
     function notice() {
@@ -199,7 +218,7 @@ $(document).ready(function () {
             .filter((name) => name)
 
         names.forEach((name) => {
-            $('.names').append(
+            $('.preteam').append(
                 `<div class="member">${name}<div class='remove-btn'><span>×</span></div></div>`,
             )
             if (!localStorage.getItem('members')) {
@@ -211,7 +230,7 @@ $(document).ready(function () {
             }
         })
 
-        if ($('.names .member').length > 0) {
+        if ($('.preteam .member').length > 0) {
             $('.step-2').removeClass('hide')
         }
 
@@ -221,11 +240,7 @@ $(document).ready(function () {
         if (!isFirstCheckForNames) return
         if (names.length <= 0) return
 
-        $('.indicator').css('display', 'flex')
-        setTimeout(() => {
-            $('.indicator').fadeOut()
-            isFirstCheckForNames = false
-        }, 2000)
+        indicator()
     }
 
     function addMemberClick() {
@@ -236,6 +251,7 @@ $(document).ready(function () {
         // oxlint-disable-next-line no-unused-expressions
         list.length > 0
             ? (function () {
+                  clear - container
                   $('.step-2').removeClass('hide')
               })()
             : $('.step-2').addClass('hide')
@@ -280,6 +296,32 @@ $(document).ready(function () {
         }
     }
 
+    function exitNotice() {
+        $('.choice .no').click(function () {
+            $('.notice-container').fadeOut()
+        })
+        $('.notice-container').click(function (event) {
+            if (!$(event.target).closest('.notice').length) {
+                $('.notice-container').fadeOut()
+            }
+        })
+    }
+
+    function preteamClearToggle() {
+        const observer = new MutationObserver(() => {
+            if ($('.preteam').children().length > 0) {
+                $('.clear-container').css('display', 'flex')
+            } else {
+                $('.clear-container').css('display', 'none')
+            }
+        })
+
+        observer.observe($('.preteam')[0], { childList: true })
+        if ($('.preteam').children().length > 0) {
+            $('.clear-container').css('display', 'flex')
+        }
+    }
+
     dragFunction()
     addNumbering()
     disableTouch()
@@ -290,10 +332,9 @@ $(document).ready(function () {
     reset()
     removeMember()
     makebodyCentered()
-
-    $(document).on('click', '.indicator', function () {
-        $(this).fadeOut()
-    })
+    clearButton()
+    exitNotice()
+    preteamClearToggle()
 
     $(window).on('resize', makebodyCentered)
 })

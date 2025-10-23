@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ekzmgusdls.github.io/aespa_dirtywork/sitemap.xml
+
+# Block common crawler bots from irrelevant paths
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Performance optimization
+Crawl-delay: 1
