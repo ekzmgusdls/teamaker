@@ -32,6 +32,7 @@ button {
 }
 .step-1 {
     margin-top: 60px;
+    margin-bottom: 30px;
 }
 
 .add-member-names {
@@ -81,11 +82,11 @@ button {
 }
 .preteam-container {
     position: relative;
-    padding-bottom: 20px;
+    // padding-bottom: 20px;
     padding-top: 20px;
     margin-top: 10px;
-    margin-bottom: 10px;
-    display: flex;
+    // margin-bottom: 10px;
+    display: none;
     flex-direction: column;
     align-items: center;
     .indicator {
@@ -407,7 +408,7 @@ button {
     }
 }
 .clear-container {
-    display: flex;
+    // display: flex;
     justify-content: center;
     order: 9;
     display: none;
@@ -502,10 +503,11 @@ button {
     bottom: 5px;
 }
 
-.notice {
+.shuffle-notice {
     margin-bottom: 15px;
     text-align: center;
     color: var(--spot);
+    font-size: 12px;
     .count {
         position: relative;
         bottom: 1px;
@@ -553,14 +555,14 @@ button {
         background-color: var(--light-gray);
         color: black;
         padding: 15px 20px;
-        border-radius: 4px;
+        border-radius: 3px;
         p {
             margin: 0;
             margin-bottom: 10px;
         }
         .choice {
             display: flex;
-            gap: 5px;
+            gap: 7px;
             justify-content: center;
             div {
                 background-color: white;
@@ -570,6 +572,8 @@ button {
                 width: 100%;
                 border-radius: 5px;
                 transition: all 0.2s;
+                padding: 5px;
+                font-size: 12px;
                 &:hover {
                     background-color: var(--gray);
                     cursor: pointer;

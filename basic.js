@@ -125,7 +125,7 @@ $(document).ready(function () {
     function shuffle() {
         // FAIR SHUFFLE 버튼 기능
         $('.shuffle').click(function () {
-            $('.notice').empty()
+            $('.shuffle-notice').empty()
             $('.shuffle').prop('disabled', true)
             $('.loading').show()
             shuffle_count++
@@ -195,10 +195,10 @@ $(document).ready(function () {
             clearTimeout(noticeTimeout)
             noticeTimeout = null
         }
-        $('.notice').show()
-        $('.notice').html(`팀을 섞었습니다 <span class='count'>(${shuffle_count})</span>`)
+        $('.shuffle-notice').show()
+        $('.shuffle-notice').html(`팀을 섞었습니다 <span class='count'>(${shuffle_count})</span>`)
         noticeTimeout = setTimeout(() => {
-            $('.notice').fadeOut()
+            $('.shuffle-notice').fadeOut()
         }, 1000)
     }
 
@@ -291,7 +291,7 @@ $(document).ready(function () {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                minHeight: `100vh`,
+                minHeight: `75vh`,
             })
         }
     }
@@ -308,11 +308,18 @@ $(document).ready(function () {
     }
 
     function preteamClearToggle() {
+        if ($('.preteam').children().length > 1) {
+            $('.clear-container').css('display', 'flex')
+            $('.preteam-container').css('display', 'flex')
+        }
+
         const observer = new MutationObserver(() => {
-            if ($('.preteam').children().length > 0) {
+            if ($('.preteam').children().length > 1) {
                 $('.clear-container').css('display', 'flex')
+                $('.preteam-container').css('display', 'flex')
             } else {
                 $('.clear-container').css('display', 'none')
+                $('.preteam-container').css('display', 'none')
             }
         })
 
